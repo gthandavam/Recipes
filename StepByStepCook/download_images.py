@@ -1,0 +1,14 @@
+import urllib
+import codecs
+
+prefix = 'http://step-by-step-cook.co.uk'
+
+if __name__ == '__main__':
+	f_imgs = open('data/all_images', 'r')
+
+	ctr = 1	
+	for img in f_imgs.readlines():
+		img = img.rstrip('\n')
+		img = img.strip()
+		urllib.urlretrieve(prefix + img, './data/images/' + str(ctr) + '.jpg')
+		ctr += 1
